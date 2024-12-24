@@ -1,0 +1,184 @@
+{
+  "_id": { "$oid": "675d444c42ba4612df40c5b4" },
+  "passages": [
+    {
+      "title": "Tea and the Industrial Revolution",
+      "author": "Anjana Abuja",
+      "content": {
+        "A": "Alan Macfarlane, professor of anthropological science at King’s College, Cambridge, has spent decades wrestling with the enigma of the Industrial Revolution. Why did this particular Big Bang – the world-changing birth of industry – happen in Britain?",
+        "B": "Macfarlane compares the puzzle to a combination lock. ‘There are about 20 different factors, and all of them need to be present before the revolution can happen,’ he says.",
+        "C": "The missing factors, he proposes, are tea and beer. The antiseptic properties of tannin, the active ingredient in tea, and of hops in beer allowed urban communities to flourish without succumbing to water-borne diseases.",
+        "D": "Between 1650 and 1740, the population in Britain was static. But then there was a sudden population burst. Infant mortality rates halved, leading to a larger workforce.",
+        "E": "This population burst provided labour for the Industrial Revolution. ‘Whatever the British were drinking must have been important,’ says Macfarlane.",
+        "F": "Macfarlane looked to Japan, which also had large cities but no Industrial Revolution. Japan’s tea culture improved health, but the nation turned its back on labour-saving devices."
+      },
+      "questions": {
+        "multiple_choice": {
+          "question_type": "Multiple Choice Questions",
+          "items": [
+            {
+              "question": "What was the missing factor that allowed urban communities to flourish?",
+              "options": ["A. Tea and beer", "B. Coal and iron", "C. Agricultural improvements", "D. New technology"],
+              "answer": "A"
+            },
+            {
+              "question": "What caused the population burst in Britain between 1650 and 1740?",
+              "options": ["A. Improved medicine", "B. Reduced infant mortality", "C. Better food production", "D. Better sanitation"],
+              "answer": "B"
+            }
+          ]
+        },
+        "true_false": {
+          "question_type": "True, False, Not Given",
+          "items": [
+            {
+              "question": "Tea and beer prevented water-borne diseases in Britain.",
+              "answer": "True"
+            },
+            {
+              "question": "Japan industrialized in the same way as Britain.",
+              "answer": "False"
+            }
+          ]
+        },
+        "short_answer": {
+          "question_type": "Short Answer Questions",
+          "items": [
+            {
+              "question": "What was Japan's main health-related drink mentioned in the passage?",
+              "answer": "Tea"
+            },
+            {
+              "question": "Who is the professor mentioned in the passage?",
+              "answer": "Alan Macfarlane"
+            }
+          ]
+        },
+        "sentence_completion": {
+          "question_type": "Sentence Completion",
+          "items": [
+            {
+              "question": "The antiseptic properties of _______ in tea helped reduce diseases.",
+              "answer": "tannin"
+            },
+            {
+              "question": "The sudden population burst provided _______ for the Industrial Revolution.",
+              "answer": "labour"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": "Gifted Children and Learning",
+      "author": "Anonymous",
+      "content": {
+        "A": "Internationally, ‘giftedness’ is often determined by a score on an IQ test. A strong educational environment contributes to such scores.",
+        "B": "To achieve excellence, very able children need proper support, focused tuition, and challenging materials.",
+        "C": "High achievers use self-regulatory strategies more effectively than their peers, allowing them to tackle unfamiliar tasks.",
+        "D": "Over-guidance by teachers may diminish the learning autonomy of gifted children. Autonomy fosters greater motivation and independence.",
+        "E": "Scientific progress requires knowledge, creativity, and a great deal of effort. Above-average motivation contributes to exceptional expertise."
+      },
+      "questions": {
+        "multiple_choice": {
+          "question_type": "Multiple Choice Questions",
+          "items": [
+            {
+              "question": "What is a common measure of giftedness?",
+              "options": ["A. Motivation levels", "B. Self-regulation", "C. IQ score", "D. Creativity"],
+              "answer": "C"
+            },
+            {
+              "question": "What can too much teacher guidance lead to?",
+              "options": ["A. Motivation loss", "B. Increased independence", "C. Improved results", "D. Better creativity"],
+              "answer": "A"
+            }
+          ]
+        },
+        "true_false": {
+          "question_type": "True, False, Not Given",
+          "items": [
+            {
+              "question": "Gifted children rely solely on teachers for their success.",
+              "answer": "False"
+            },
+            {
+              "question": "Positive emotions enhance a child's learning.",
+              "answer": "True"
+            }
+          ]
+        },
+        "short_answer": {
+          "question_type": "Short Answer Questions",
+          "items": [
+            {
+              "question": "What type of learning strategy do high achievers use more effectively?",
+              "answer": "Self-regulatory strategies"
+            },
+            {
+              "question": "What does scientific progress require besides knowledge?",
+              "answer": "Creativity and effort"
+            }
+          ]
+        },
+        "sentence_completion": {
+          "question_type": "Sentence Completion",
+          "items": [
+            {
+              "question": "Gifted children often need _______ to develop their learning autonomy.",
+              "answer": "support"
+            },
+            {
+              "question": "Positive emotions can _______ the learning process of gifted children.",
+              "answer": "enhance"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": "School Experiments",
+      "author": "Science Lab",
+      "content": {
+        "A": "It is essential when conducting this experiment to wear safety goggles. This experiment is divided into four distinct sections. The first, the reaction stage, is when a glass beaker is placed on top of a tripod, and 20cm of dilute sulphuric acid poured into it. The acid is then heated. When it is almost boiling, a small quantity of copper oxide powder is added to the beaker. The mixture is then stirred with a glass spatula until the copper oxide has dissolved. This process is then repeated until 1g of powder has been added to the sulphuric acid. The heat is then removed from the beaker and the solution allowed to cool. The second stage is the filtration stage and, as the name suggests, is where a filter and conical flask are used to remove any copper oxide that has not reacted. A clear copper sulphate solution will be left in the glass dish. The third stage is where heat is applied to the copper sulphate solution in order to concentrate the solution: the concentration stage. The final crystallization stage happens when the solution begins to cool, and pure copper sulphate crystals start to form."
+      },
+      "questions": {
+        "image_based": {
+          "question_type": "Diagram Labelling",
+          "items": [
+            {
+              "question": "Label 1",
+              "options": ["Reaction", "Filtration", "Crystallization", "Concentration"],
+              "answer": "Filtration"
+            },
+            {
+              "question": "Label 2",
+              "options": ["Reaction", "Filtration", "Crystallization", "Concentration"],
+              "answer": "Crystallization"
+            },
+            {
+              "question": "Label 3",
+              "options": ["Copper oxide powder", "Dilute sulphuric acid", "Filter paper", "Tripod"],
+              "answer": "Copper oxide powder"
+            },
+            {
+              "question": "Label 4",
+              "options": ["Remove copper oxide", "Concentrate solution", "Add heat", "Crystallization"],
+              "answer": "Remove copper oxide"
+            },
+            {
+              "question": "Label 5",
+              "options": ["Copper sulphate solution", "Filter paper", "Reaction stage", "Final solution"],
+              "answer": "Copper sulphate solution"
+            },
+            {
+              "question": "Label 6",
+              "options": ["Copper sulphate crystals", "Dilute sulphuric acid", "Reaction", "Filter"],
+              "answer": "Copper sulphate crystals"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

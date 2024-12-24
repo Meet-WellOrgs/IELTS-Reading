@@ -1,0 +1,200 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    background: linear-gradient(to right, #f3f4f7, #e3e8ef); /* Subtle gradient background */
+    color: #444; /* Softer dark text */
+    margin: 0;
+    line-height: 1.8;
+    padding: 20px; /* Add overall page padding */
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Elegant gradient header */
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow for a bold effect */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 6px solid #2a5298;
+    animation: fadeInSlideDown 1.5s ease-out; /* Smooth animation for header */
+    border-radius: 0 0 15px 15px; /* Rounded bottom edges */
+}
+
+/* Container Styling */
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent for layered look */
+    padding: 40px;
+    border-radius: 20px; /* Smooth rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Larger shadow for emphasis */
+    border: 2px solid #cfd8e3; /* Elegant border */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-15px); /* Gentle lift effect on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Headings */
+h2 {
+    color: #2a5298;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid #1e3c72; /* Strong underline */
+    padding-bottom: 0.5rem;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+h3 {
+    color: #1e3c72;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.1rem;
+    color: #555; /* Softer text color */
+    margin-bottom: 1.5rem;
+    line-height: 1.8; /* Improve readability */
+}
+
+/* Result Box */
+.result {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(to right, #eef5ff, #dfe8ff); /* Softer gradient */
+    border: 1px solid #b0c7e6;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result:hover {
+    transform: scale(1.03); /* Slight zoom effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Correct Answers */
+.correct {
+    color: #28a745;
+    font-weight: bold;
+    background-color: rgba(40, 167, 69, 0.1); /* Light green highlight */
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+/* Incorrect Answers */
+.incorrect {
+    color: #dc3545;
+    font-weight: bold;
+    background-color: rgba(220, 53, 69, 0.1); /* Light red highlight */
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+/* Summary Box */
+.band-summary {
+    background: linear-gradient(to right, #f9fafb, #e9eff6); /* Subtle background */
+    padding: 30px;
+    border: 2px solid #cfd8e3;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(to right, #2a5298, #1e3c72); /* Gradient footer */
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+    box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.3); /* Shadow above footer */
+    margin-top: 50px;
+    animation: fadeInSlideUp 1s ease-out;
+    border-radius: 15px 15px 0 0; /* Rounded top edges */
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradient button */
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Elevated shadow */
+}
+
+button:hover {
+    background: linear-gradient(to right, #2a5298, #3e7ab7); /* Slightly lighter gradient */
+    transform: scale(1.07); /* Larger zoom effect */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+button:active {
+    background: #1a3260; /* Solid color for active state */
+    transform: scale(0.98); /* Click effect */
+}
+
+/* Links */
+a {
+    color: #1e3c72;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    color: #2a5298;
+    text-decoration: underline;
+    transform: scale(1.05); /* Subtle hover animation */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

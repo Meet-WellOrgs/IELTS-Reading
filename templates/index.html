@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Exam Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📖 Reading Exam Portal</h1>
+    </header>
+    <main>
+        <div id="exam-content" class="container">
+            <p>Loading content, please wait...</p>
+        </div>
+        <div id="image-section" class="container" style="display: none;">
+            <h2>Diagram Labelling</h2>
+            <div id="image-passage">
+                <img src="https://websitecmscdn.s3.ap-south-1.amazonaws.com/school_experiment_diagram_labelling_exercise_1_6a9576f532.PNG" alt="Labelling Diagram" style="max-width: 100%; height: auto;" />
+            </div>
+            <div id="image-questions"></div>
+        </div>
+        <button id="submit-button" onclick="submitAnswers()">Submit Answers</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Reading Exam Portal. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let questionCounter = 1;
+        const questionOrder = [];
+        const answers = {};
+
+        async function fetchExamData() {
+            questionCounter = 1; // Reset question counter on retake
+            const examContent = document.getElementById("exam-content");
+            examContent.innerHTML = "<p>Loading content, please wait...</p>";
+            try {
+                const response = await fetch("/api/exam_sets");
+                const data = await response.json();
+                questionOrder.length = 0;
+                renderExam(data);
+            } catch (error) {
+                examContent.innerHTML = `<p class="error">Error loading content: ${error.message}</p>`;
+            }
+        }
+
+        function renderExam(data) {
+            const examContent = document.getElementById("exam-content");
+            const imageSection = document.getElementById("image-section");
+            let hasImageQuestions = false;
+
+            examContent.innerHTML = "";
+            data.forEach(set => {
+                set.passages.forEach(passage => {
+                    if (passage.questions.image_based) {
+                        hasImageQuestions = true;
+                        renderImageQuestions(passage.questions.image_based);
+                    } else {
+                        let contentHtml = `
+                            <div class="passage">
+                                <h2>${passage.title}</h2>
+                                <p><strong>${passage.author ? `Author: ${passage.author}` : ""}</strong></p>
+                                ${Object.entries(passage.content).map(([key, text]) => `
+                                    <p><strong>${key}:</strong> ${text}</p>`).join('')}
+                                ${renderQuestions(passage.questions)}
+                            </div>`;
+                        examContent.innerHTML += contentHtml;
+                    }
+                });
+            });
+
+            if (hasImageQuestions) {
+                imageSection.style.display = "block";
+            }
+        }
+
+        function renderImageQuestions(imageQuestions) {
+            const imageQuestionsDiv = document.getElementById("image-questions");
+            imageQuestionsDiv.innerHTML = "";
+
+            imageQuestions.items.forEach((item, index) => {
+                questionOrder.push(item.question);
+                imageQuestionsDiv.innerHTML += `
+                    <div class="question">
+                        <p>${questionCounter++}. ${item.question}</p>
+                        ${item.options.map(option => `
+                            <label>
+                                <input type="radio" name="${item.question}" value="${option}" onchange="saveAnswer('${item.question}', '${option}')">
+                                ${option}
+                            </label><br>
+                        `).join('')}
+                    </div>`;
+            });
+        }
+
+        function renderQuestions(questions) {
+            let html = "";
+            for (const [key, group] of Object.entries(questions)) {
+                html += `
+                    <div class="questions">
+                        <h3>${group.question_type}</h3>
+                        ${group.items.map(item => {
+                            questionOrder.push(item.question);
+                            return `
+                                <div class="question">
+                                    <p>${questionCounter++}. ${item.question}</p>
+                                    ${renderInput(group.question_type, item)}
+                                </div>`;
+                        }).join('')}
+                    </div>`;
+            }
+            return html;
+        }
+
+        function renderInput(type, item) {
+            if (type === "Multiple Choice Questions" || type === "Diagram Labelling") {
+                return item.options.map(option => `
+                    <label>
+                        <input type="radio" name="${item.question}" value="${option}" onchange="saveAnswer('${item.question}', '${option}')">
+                        ${option}
+                    </label><br>
+                `).join('');
+            } else {
+                return `<textarea rows="2" placeholder="Type your answer here" oninput="saveAnswer('${item.question}', this.value)"></textarea>`;
+            }
+        }
+
+        function saveAnswer(question, answer) {
+            answers[question] = answer;
+        }
+
+        async function submitAnswers() {
+            console.log("Submitting answers:", answers);
+            const response = await fetch("/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ answers, question_order: questionOrder })
+            });
+
+            const result = await response.json();
+            displayResults(result);
+        }
+
+        function displayResults(result) {
+            const examContent = document.getElementById("exam-content");
+            const imageSection = document.getElementById("image-section");
+
+            // Hide diagram-related content in the results
+            imageSection.style.display = "none";
+
+            examContent.innerHTML = `<h2>Results</h2>`;
+            result.results.forEach(entry => {
+                examContent.innerHTML += `
+                    <div class="result">
+                        <p><strong>Question ${entry.number}:</strong> ${entry.question}</p>
+                        <p><strong>Type:</strong> ${entry.type}</p>
+                        <p><strong>Your Answer:</strong> ${entry.user_answer || "<em>Not Answered</em>"}</p>
+                        <p><strong>Correct Answer:</strong> ${entry.correct_answer}</p>
+                        <p class="${entry.is_correct ? 'correct' : 'incorrect'}">
+                            ${entry.is_correct ? "✅ Correct" : "❌ Incorrect"}
+                        </p>
+                        ${!entry.is_correct && entry.suggestion ? `<p><strong>Suggestion:</strong> ${entry.suggestion}</p>` : ""}
+                    </div>`;
+            });
+
+            examContent.innerHTML += `
+                <div class="band-summary">
+                    <h3>Your Band Score: ${result.band_score}</h3>
+                    <p><strong>Skill Level:</strong> ${result.skill_level}</p>
+                    <p><strong>Description:</strong> ${result.description}</p>
+                    <div class="summary">
+                        <h3>Summary</h3>
+                        <p><strong>Total Questions:</strong> ${result.results.length}</p>
+                        <p><strong>Answered:</strong> ${result.answered_questions.length}</p>
+                        <p><strong>Unanswered:</strong> ${result.unanswered_questions.length}</p>
+                        <p><strong>Correct:</strong> ${result.correct_count}</p>
+                        <p><strong>Incorrect:</strong> ${result.incorrect_count}</p>
+                    </div>
+                    <button onclick="fetchExamData()">Retake Test</button>
+                </div>`;
+        }
+
+        fetchExamData();
+    </script>
+</body>
+</html>
